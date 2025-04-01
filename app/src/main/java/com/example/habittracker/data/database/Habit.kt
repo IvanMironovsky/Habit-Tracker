@@ -6,15 +6,15 @@ import androidx.room.PrimaryKey
 import java.util.Date
 
 @Entity(tableName = "habits")
-data class HabitEntity (
+data class Habit (
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String,
     @ColumnInfo(name = "goal_type") val goalType: GoalType,
     @ColumnInfo(name = "days_of_week") val daysOfWeek: List<DayOfWeek>,
     @ColumnInfo(name = "repetitions_per_day") val repetitionsPerDay: Int,
-    val endDate: Date?,
-    val reminderEnabled: Boolean,
-    val reminderTime: List<String>?
+    @ColumnInfo(name = "end_date") val endDate: Date?,
+    @ColumnInfo(name = "reminder_enabled") val reminderEnabled: Boolean,
+    @ColumnInfo(name = "reminder_time") val reminderTime: List<String>?
 ) {
     enum class GoalType {
         TIME, QUANTITY
